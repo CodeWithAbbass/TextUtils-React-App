@@ -76,28 +76,28 @@ export default function TextForm(props) {
           }
         ></textarea>
       </div>
-      <button className="btn btn-primary" onClick={handlerUpperCaseClick}>
+      <button className="btn btn-primary mx-1 my-1" onClick={handlerUpperCaseClick}>
         Convert To UPPERCASE
       </button>
-      <button className="btn btn-primary mx-4" onClick={handlerlowercaseClick}>
+      <button className="btn btn-primary mx-1 my-1" onClick={handlerlowercaseClick}>
         Convert To lowercase
       </button>
-      <button className="btn btn-primary" onClick={handlerCopy}>
+      <button className="btn btn-primary mx-1 my-1" onClick={handlerCopy}>
         Copy Text
       </button>
-      <button className="btn btn-primary mx-4" onClick={handlerRemoveSpaces}>
+      <button className="btn btn-primary mx-1 my-1" onClick={handlerRemoveSpaces}>
         Remove Extra Spaces
       </button>
-      <button className="btn btn-primary " onClick={handlerClearClick}>
+      <button className="btn btn-primary mx-1 my-1" onClick={handlerClearClick}>
         Clear
       </button>
       <div className="container my-4">
         <h3>Your Text Summary</h3>
         <p>
-          {text.split(" ").length} Words and {text.length} Characters Including
+          {text.split(" ").filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters Including
           Spaces.
         </p>
-        <p>{0.008 * text.split(" ").length} Minutes to Read.</p>
+        <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to Read.</p>
         <h3>Preview</h3>
         <p>{text.length>0?text:"Enter Your Text To The Above Box To Preview Here"}</p>
       </div>

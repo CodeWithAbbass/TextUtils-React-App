@@ -8,7 +8,7 @@ export default function About(props) {
     backgroundColor: "white",
   });
   const [BtnText, setBtnText] = useState("Enable Dark Mode");
-
+  const [container, setContainer] = useState("light");
   const changeStyle = ()=>{
     if (myStyle.backgroundColor==="white") {
         setMyStyle({
