@@ -3,32 +3,21 @@ import React, { useState } from "react";
 export default function About(props) {
 
  
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
-  const [BtnText, setBtnText] = useState("Enable Dark Mode");
-  const [container, setContainer] = useState("light");
-  const changeStyle = ()=>{
-    if (myStyle.backgroundColor==="white") {
-        setMyStyle({
-            color: "white",
-            backgroundColor: "black",
-        })
-        // setMyBody(body.style.backgroundColor = "black")
-        setBtnText("Enable Light Mode")
-    }else{
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-    })
-    // setMyBody(body.style.backgroundColor = "white")
-    setBtnText("Enable Dark Mode")
-    }
-  }
+  // const [myStyle, setMyStyle] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  // });
+
+let myStyle = {
+  color: props.darkMode === "dark"?"white":"black",
+  backgroundColor: props.darkMode === "dark"?"rgba(33, 37, 41, 0.42)":"white",
+}
+let myStyleText = {
+  color: props.darkMode === "dark"?"white":"black",
+}
   return (
     
-    <div className="container my-4" style={myStyle} >
+    <div className="container my-4" style={myStyleText} >
       <h2 className="my-4">About Us</h2>
       <div
         className="accordion"
@@ -135,7 +124,7 @@ export default function About(props) {
           </div>
         </div>
       </div>
-      <button className="btn btn-primary my-4" onClick={changeStyle}>{BtnText}</button>
+
     </div>
   );
 }

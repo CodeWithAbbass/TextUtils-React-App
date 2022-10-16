@@ -84,7 +84,7 @@ const ColorPallete = (cls)=>{
 
           <Route path='/about' element={
 
-          <About />
+          <About darkMode={darkMode}/>
 
            }/> 
 
