@@ -22,6 +22,7 @@ export default function TextForm(props) {
   const handlerCopy = () => {
     const Text = document.getElementById("myBox");
     Text.select();
+    document.getSelection().removeAllRanges();
     navigator.clipboard.writeText(Text.value);
     props.showAlert("Text Copied", "success");
   };
@@ -76,30 +77,30 @@ export default function TextForm(props) {
           }
         ></textarea>
       </div>
-      <button className="btn btn-primary mx-1 my-1" onClick={handlerUpperCaseClick}>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handlerUpperCaseClick}>
         Convert To UPPERCASE
       </button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handlerlowercaseClick}>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handlerlowercaseClick}>
         Convert To lowercase
       </button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handlerCopy}>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handlerCopy}>
         Copy Text
       </button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handlerRemoveSpaces}>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handlerRemoveSpaces}>
         Remove Extra Spaces
       </button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handlerClearClick}>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handlerClearClick}>
         Clear
       </button>
       <div className="container my-4">
         <h3>Your Text Summary</h3>
         <p>
-          {text.split(" ").filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters Including
+          {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters Including
           Spaces.
         </p>
         <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to Read.</p>
         <h3>Preview</h3>
-        <p>{text.length>0?text:"Enter Your Text To The Above Box To Preview Here"}</p>
+        <p>{text.length>0?text:"Nothing To Preview Here"}</p>
       </div>
     </div >
   );

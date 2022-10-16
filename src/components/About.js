@@ -2,15 +2,11 @@ import React, { useState } from "react";
 
 export default function About(props) {
 
- 
-  // const [myStyle, setMyStyle] = useState({
-  //   color: "black",
-  //   backgroundColor: "white",
-  // });
 
 let myStyle = {
   color: props.darkMode === "dark"?"white":"black",
   backgroundColor: props.darkMode === "dark"?"rgba(33, 37, 41, 0.42)":"white",
+  boxShadow: props.darkMode === "dark"? "#c7c6c6 0px 0px 20px": "none",
 }
 let myStyleText = {
   color: props.darkMode === "dark"?"white":"black",
@@ -35,7 +31,7 @@ let myStyleText = {
               aria-controls="panelsStayOpen-collapseOne"
               style={myStyle}
             >
-              Accordion Item #1
+               CodeWithChurail
             </button>
           </h2>
           <div
@@ -68,7 +64,7 @@ let myStyleText = {
               aria-controls="panelsStayOpen-collapseTwo"
               style={myStyle}
             >
-              Accordion Item #2
+              CodeWithAbbas
             </button>
           </h2>
           <div
@@ -101,7 +97,7 @@ let myStyleText = {
               aria-controls="panelsStayOpen-collapseThree"
               style={myStyle}
             >
-              Accordion Item #3
+              CodeWithNoor
             </button>
           </h2>
           <div

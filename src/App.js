@@ -42,7 +42,7 @@ function App() {
   }
 const ColorPallete = (cls)=>{
   bodyClassRemove();
-  document.body.classList.add("bg-" + cls);
+  return document.body.classList.add("bg-" + cls);
 
 }
   const toggleDarkMode = (cls) => {
@@ -83,8 +83,9 @@ const ColorPallete = (cls)=>{
         <Routes>
 
           <Route path='/about' element={
-
-          <About darkMode={darkMode}/>
+          <About darkMode={darkMode} 
+          ColorPallete={ColorPallete}
+          />
 
            }/> 
 
